@@ -1,0 +1,67 @@
+<?php
+namespace Lucinda\DocumentationValidator;
+require_once("ParameterDeclaration.php");
+require_once("ReturnDeclaration.php");
+require_once("ThrowsDeclaration.php");
+
+class CommentParser {
+    private $description;
+    private $parameters=[];
+    private $returns;
+    private $throws=[];
+
+    public function __construct($comment) {
+        if(!$comment) return;
+        $comment = trim(str_replace(["/**","*/"," * ","\r"],"", $comment));
+        $lines = explode("\n", $comment);
+        foreach($lines as $line) {
+            $this->parseLine(trim($line));
+        }
+    }
+
+    private function parseLine($line) {
+        if(strpos($line, "@")!==0) {
+            $this->description .= $line."\n";
+            return;
+        }
+        preg_match("/@param\s+([^\s]+)\s+\\$([a-zA-Z]+)\s+(.*)/", $line, $m1);
+        if(sizeof($m1)>0) {
+            $param = new ParameterDeclaration();
+            $param->setName($m1[2]);
+            $param->setType($m1[1]);
+            $param->setDescription($m1[3]);
+            $this->parameters[$m1[2]] = $param;
+
+        }
+        preg_match("/@return\s+([^\s]+)\s*(.*)/", $line, $m2);
+        if(sizeof($m2)>0) {
+            $rd = new ReturnDeclaration();
+            $rd->setType($m2[1]);
+            $rd->setDescription($m2[2]);
+            $this->returns = $rd;
+        }
+        preg_match("/@throws\s+([^\s]+)\s*(.*)/", $line, $m3);
+        if(sizeof($m3)>0) {
+            $td = new ThrowsDeclaration();
+            $td->setType($m3[1]);
+            $td->setDescription($m3[2]);
+            $this->throws[] = $td;
+        }
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getParameters() {
+        return $this->parameters;
+    }
+
+    public function getReturns() {
+        return $this->returns;
+    }
+
+    public function getThrows() {
+        return $this->throws;
+    }
+}
