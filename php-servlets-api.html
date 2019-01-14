@@ -1,0 +1,2536 @@
+
+<h2 id="Application">Application</h2>
+<p>Compiles information about application.
+</p>
+<h3>Signature</h3>
+<p>class Application </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $xmlFilePath
+            </td>
+            <td>
+            </td>
+            <td>
+                Populates attributes based on an XML file
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If xml file wasn't found</li><li>throwing <a href="#XMLException">XMLException</a> If xml content has failed validation.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getDefaultPage</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets default landing page.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getDefaultFormat</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets default response format name (eg: html or json)
+
+            </td>
+        </tr>
+        <tr>
+            <td>getControllersPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to controllers folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getListenersPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to listeners folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getViewResolversPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to view resolvers folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getViewsPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to views folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPublicPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to public folder. Contents of this folder are directly available to outside world.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getAutoRouting</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Gets whether or not application uses auto routing.
+true: Controllers will be automatically discovered based on route requested
+false: Routes to controllers have been explicitly set in routes:route @ XML.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getVersion</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets value of application version. Value, if exists, should be sent to views and used to force refresh of JS/CSS files on clients' browsers. Example:
+http://www.example.com/foo/bar.js?ver=1.2.0
+
+            </td>
+        </tr>
+        <tr>
+            <td>getListeners</td>
+            <td>
+            </td>
+            <td><i>string[]</i>
+            </td>
+            <td>
+                Gets user-defined listeners. They will be executed in exactly the order set by user.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getTag</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>\SimpleXMLElement</i>
+            </td>
+            <td>
+                Gets tag based on name from main XML root or referenced XML file if "ref" attribute was set
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If "ref" points to a nonexistent file.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>attributes</td>
+            <td>
+            </td>
+            <td><i><a href="#MutableAttributesFactory">MutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that manages user-defined attributes.
+
+            </td>
+        </tr>
+        <tr>
+            <td>routes</td>
+            <td>
+            </td>
+            <td><i><a href="#ImmutableAttributesFactory">ImmutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulats routes defined in XML
+
+            </td>
+        </tr>
+        <tr>
+            <td>formats</td>
+            <td>
+            </td>
+            <td><i><a href="#ImmutableAttributesFactory">ImmutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulats formats defined in XML
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ApplicationListener">ApplicationListener</h2>
+<p>Listens on configuration object and appends attributes to it.
+</p>
+<h3>Signature</h3>
+<p>abstract class ApplicationListener implements <a href="#Runnable">Runnable</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves Application object to be available in implemented run() methods.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="AttributesFactory">AttributesFactory</h2>
+<p>Defines blueprints for a factory of attributes.
+</p>
+<h3>Signature</h3>
+<p>interface AttributesFactory </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>toArray</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Exports factory contents to an array.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>isEmpty</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if factory is empty of contents
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Controller">Controller</h2>
+<p>Defines an abstract controller.
+</p>
+<h3>Signature</h3>
+<p>abstract class Controller implements <a href="#Runnable">Runnable</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves Application, Request and Response objects to be available in implemented run() methods.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ControllerLocator">ControllerLocator</h2>
+<p>Locates controller by matching page requested by client to data in XML tag &quot;route&quot;.
+</p>
+<h3>Signature</h3>
+<p>class ControllerLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i>string</i> $pagePath
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects controller based on page requested and XML.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If controller file could not be located on disk.</li><li>throwing <a href="#XMLException">XMLException</a> If XML is misconfigured</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getClassName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets controller class name.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Cookie">Cookie</h2>
+<p>Attributes factory enveloping operations with COOKIE.
+</p>
+<h3>Signature</h3>
+<p>class Cookie implements <a href="#MutableAttributes">MutableAttributes</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i><a href="#CookieSecurityOptions">CookieSecurityOptions</a></i> $securityOptions
+            </td>
+            <td>
+            </td>
+            <td>
+                Adds/updates a cookie param.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value of cookie param.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if cookie param exists.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>remove</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes cookie param.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="CookieSecurityOptions">CookieSecurityOptions</h2>
+<p>Encapsulates session security settings on top of php.ini.
+</p>
+<h3>Signature</h3>
+<p>class CookieSecurityOptions </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>setExpiredTime</td>
+            <td><i>integer</i> $seconds
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets session cookie's expiration time.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getExpiredTime</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets cookie's expiration time.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setSecuredByHTTPS</td>
+            <td><i>boolean</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles restricting sessions to HTTPS only. If ON: HTTP cookies will not be accepted by server.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>isSecuredByHTTPS</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Gets whether or not cookie is available only through HTTPs.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setSecuredByHTTPheaders</td>
+            <td><i>boolean</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles restricting cookies to HTTP headers only. If ON: cookies not sent via HTTP headers will be ignored by server.
+
+            </td>
+        </tr>
+        <tr>
+            <td>isSecuredByHTTPheaders</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Gets whether or not cookie is available through HTTP only.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setPath</td>
+            <td><i>string</i> $path
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets the path on the server in which the cookie will be available on.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets the path on the server in which the cookie will be available on.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setDomain</td>
+            <td><i>string</i> $domain
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets the (sub)domain that the cookie is available to.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getDomain</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets the (sub)domain that the cookie is available to.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="FileUploadException">FileUploadException</h2>
+<p>Exception thrown when uploaded file fails validation. This should be an error that should be handled manually and not cause application to terminate.
+</p>
+<h3>Signature</h3>
+<p>class FileUploadException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="Format">Format</h2>
+<p>Encapsulates file format information:
+Utility @ Application class.
+
+
+<ul><li>format: file format / name</li><li>content type: content type that corresponds to above file format</li><li>character encoding: charset associated to content type</li><li>view resolver: (optional) view resolver class name. If not set, framework will resolve into an empty view with headers only.</li></ul></p>
+<h3>Signature</h3>
+<p>class Format </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $name,<br/><i>string</i> $contentType,<br/><i>string</i> $characterEncoding,<br/><i>string</i> $viewResolverClass
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves response format data detected from XML tag "format".
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets response format name (extension).
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets content type
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getCharacterEncoding</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets character encoding (charset)
+
+            </td>
+        </tr>
+        <tr>
+            <td>getViewResolver</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets view resolver class name
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="FormatNotFoundException">FormatNotFoundException</h2>
+<p>Exception thrown when ServletsAPI fails to locate a format that matches requested name (extension).
+</p>
+<h3>Signature</h3>
+<p>class FormatNotFoundException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="FrontController">FrontController</h2>
+<p>Implements STDOUT front controller MVC functionality, integrating all API components as a whole.
+</p>
+<h3>Signature</h3>
+<p>class FrontController </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $documentDescriptor
+            </td>
+            <td>
+            </td>
+            <td>
+                Performs all steps required to convert request to response in procedural mode, while delegating to subcomponents, to maximize performance
+
+. This method is: <ul><li>throwing <a href="#XMLException">XMLException</a> If xml contents fail validation checks.</li><li>throwing <a href="#FormatNotFoundException">FormatNotFoundException</a> If an invalid response format was setup by developer in XML for route requested by client.</li><li>throwing <a href="#PathNotFoundException">PathNotFoundException</a> If an invalid route was requested from client or setup by developer in XML.</li><li>throwing <a href="#FileUploadException">FileUploadException</a> If file upload failed due to server constraints.</li><li>throwing <a href="#ServletException">ServletException</a> If any other situation where execution cannot continue.</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ImmutableAttributes">ImmutableAttributes</h2>
+<p>Defines blueprint for attributes that, once set, become immutable later on.
+</p>
+<h3>Signature</h3>
+<p>interface ImmutableAttributes </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets attribute value by key.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if an attribute exists by its key.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ImmutableAttributesFactory">ImmutableAttributesFactory</h2>
+<p>Implements a factory of immutable attributes
+</p>
+<h3>Signature</h3>
+<p>class ImmutableAttributesFactory implements <a href="#ImmutableAttributes">ImmutableAttributes</a>, <a href="#AttributesFactory">AttributesFactory</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>array</i> $attributes
+            </td>
+            <td>
+            </td>
+            <td>
+                Populates attributes from the beginning.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets attribute value by key.
+
+. This method is: <ul><li>overriding get() @ <a href="#ImmutableAttributes">ImmutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if an attribute exists by its key.
+
+. This method is: <ul><li>overriding contains() @ <a href="#ImmutableAttributes">ImmutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>toArray</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Exports factory contents to an array.
+
+. This method is: <ul><li>overriding toArray() @ <a href="#AttributesFactory">AttributesFactory</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>isEmpty</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if factory is empty of contents
+
+. This method is: <ul><li>overriding isEmpty() @ <a href="#AttributesFactory">AttributesFactory</a></li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ListenerLocator">ListenerLocator</h2>
+<p>Locates all event listeners based on data in XML tag &lt;listeners&gt;.
+</p>
+<h3>Signature</h3>
+<p>class ListenerLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects all event listeners based on entries in XML tag <listeners>.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If listener file could not be located on disk.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getClassNames</td>
+            <td><i>string</i> $parentClassName
+            </td>
+            <td><i>string[]</i>
+            </td>
+            <td>
+                Gets event listener class names by parent class name.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MethodNotAllowedException">MethodNotAllowedException</h2>
+<p>Exception thrown when HTTP method is not allowed by a REST controller.
+</p>
+<h3>Signature</h3>
+<p>class MethodNotAllowedException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="MutableAttributes">MutableAttributes</h2>
+<p>Defines blueprint for attributes that remain mutable throughout application lifecycle.
+</p>
+<h3>Signature</h3>
+<p>interface MutableAttributes extends <a href="#ImmutableAttributes">ImmutableAttributes</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value of attribute by its key.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>remove</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Removes attribute by its key.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MutableAttributesFactory">MutableAttributesFactory</h2>
+<p>Implements a factory of mutable attributes
+</p>
+<h3>Signature</h3>
+<p>class MutableAttributesFactory implements <a href="#MutableAttributes">MutableAttributes</a>, <a href="#AttributesFactory">AttributesFactory</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>array</i> $attributes
+            </td>
+            <td>
+            </td>
+            <td>
+                Populates attributes from the beginning, if found.
+
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets attribute value by key.
+
+. This method is: <ul><li>overriding get() @ <a href="#ImmutableAttributes">ImmutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value of attribute by its key.
+
+. This method is: <ul><li>overriding set() @ <a href="#MutableAttributes">MutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>remove</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Removes attribute by its key.
+
+. This method is: <ul><li>overriding remove() @ <a href="#MutableAttributes">MutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if an attribute exists by its key.
+
+. This method is: <ul><li>overriding contains() @ <a href="#ImmutableAttributes">ImmutableAttributes</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>toArray</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Exports factory contents to an array.
+
+. This method is: <ul><li>overriding toArray() @ <a href="#AttributesFactory">AttributesFactory</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>isEmpty</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if factory is empty of contents
+
+. This method is: <ul><li>overriding isEmpty() @ <a href="#AttributesFactory">AttributesFactory</a></li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="PageValidator">PageValidator</h2>
+<p>Single responsibility in validating requested page based on XML encapsulated by Application object
+</p>
+<h3>Signature</h3>
+<p>class PageValidator implements <a href="#RequestValidator">RequestValidator</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $page,<br/><i><a href="#Application">Application</a></i> $application
+            </td>
+            <td>
+            </td>
+            <td>
+                Validates resource requested by client based on XML information
+
+. This method is: <ul><li>throwing <a href="#PathNotFoundException">PathNotFoundException</a> If requested resource doesn't exist in XML as a "route" tag.</li><li>throwing <a href="#FormatNotFoundException">FormatNotFoundException</a> If requested response format doesn't exist in XML as a "format" tag.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getPage</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets requested resource/page
+
+. This method is: <ul><li>overriding getPage() @ <a href="#RequestValidator">RequestValidator</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getPathParameter</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>string<br/>null</i>
+            </td>
+            <td>
+                Gets value of path parameter by name
+. This method is: <ul><li>overriding getPathParameter() @ <a href="#RequestValidator">RequestValidator</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getPathParameters</td>
+            <td>
+            </td>
+            <td><i>string[string]</i>
+            </td>
+            <td>
+                Gets all path parameters
+
+. This method is: <ul><li>overriding getPathParameters() @ <a href="#RequestValidator">RequestValidator</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets request content type
+
+. This method is: <ul><li>overriding getContentType() @ <a href="#RequestValidator">RequestValidator</a></li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="PathNotFoundException">PathNotFoundException</h2>
+<p>Exception thrown when ServletsAPI fails to locate a route that matches requested path.
+</p>
+<h3>Signature</h3>
+<p>class PathNotFoundException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="Request">Request</h2>
+<p>Detects information about request from $_SERVER, $_GET, $_POST, $_FILES. Once detected, parameters are immutable.
+</p>
+<h3>Signature</h3>
+<p>class Request </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects all aspects of a request.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getClient</td>
+            <td>
+            </td>
+            <td><i><a href="#RequestClient">RequestClient</a></i>
+            </td>
+            <td>
+                Gets information about client that made the request.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getServer</td>
+            <td>
+            </td>
+            <td><i><a href="#RequestServer">RequestServer</a></i>
+            </td>
+            <td>
+                Gets information about server that received the request.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getURI</td>
+            <td>
+            </td>
+            <td><i><a href="#RequestURI">RequestURI</a></i>
+            </td>
+            <td>
+                Gets information about URI client requested (host, page, url, etc).
+
+            </td>
+        </tr>
+        <tr>
+            <td>getUploadedFiles</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Gets files uploaded as tree of UploadedFile objects following request structure.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getCookie</td>
+            <td>
+            </td>
+            <td><i><a href="#Cookie">Cookie</a></i>
+            </td>
+            <td>
+                Gets pointer to cookie (to be used in gettin/setting cookie params)
+
+            </td>
+        </tr>
+        <tr>
+            <td>getSession</td>
+            <td>
+            </td>
+            <td><i><a href="#Session">Session</a></i>
+            </td>
+            <td>
+                Gets pointer to cookie (to be used in gettin/setting session params)
+
+            </td>
+        </tr>
+        <tr>
+            <td>getMethod</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets HTTP request method in which URI was requested.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getProtocol</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets protocol for which URI was requested.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getInputStream</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets input stream contents.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setValidator</td>
+            <td><i><a href="#RequestValidator">RequestValidator</a></i> $validator
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets class able to process request and extract information about:
+- actual page requested
+- content type requested
+- path parameters present in request
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getValidator</td>
+            <td>
+            </td>
+            <td><i><a href="#RequestValidator">RequestValidator</a></i>
+            </td>
+            <td>
+                Gets class to extract information about:
+- actual page requested
+- content type requested
+- path parameters present in request
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>attributes</td>
+            <td>
+            </td>
+            <td><i><a href="#MutableAttributesFactory">MutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulates user-defined attributes.
+
+            </td>
+        </tr>
+        <tr>
+            <td>headers</td>
+            <td>
+            </td>
+            <td><i><a href="#ImmutableAttributesFactory">ImmutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulates headers received from client.
+
+            </td>
+        </tr>
+        <tr>
+            <td>parameters</td>
+            <td>
+            </td>
+            <td><i><a href="#ImmutableAttributesFactory">ImmutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulates parameters associated to request method (GET/POST/PUT/DELETE) received from client.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestClient">RequestClient</h2>
+<p>Encapsulates information about client that made the request.
+</p>
+<h3>Signature</h3>
+<p>class RequestClient </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects info based on values in $_SERVER superglobal
+
+            </td>
+        </tr>
+        <tr>
+            <td>setName</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets host name.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets host name.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getIP</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets IP address
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPort</td>
+            <td>
+            </td>
+            <td><i>int</i>
+            </td>
+            <td>
+                Gets  port
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestFilesParser">RequestFilesParser</h2>
+<p>Encapsulates information from $_FILES superglobal into a tree.
+</p>
+<h3>Signature</h3>
+<p>class RequestFilesParser </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Parses through $_FILES superglobal and compiles a tree.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getResult</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Gets tree.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestListener">RequestListener</h2>
+<p>Listens on request object and appends attributes to it.
+</p>
+<h3>Signature</h3>
+<p>abstract class RequestListener implements <a href="#Runnable">Runnable</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves Application & Request objects to be available in implemented run() methods.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestServer">RequestServer</h2>
+<p>Encapsulates information about server that received the request.
+</p>
+<h3>Signature</h3>
+<p>class RequestServer </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects info based on values in $_SERVER superglobal
+
+            </td>
+        </tr>
+        <tr>
+            <td>getName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets server host name.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getIP</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets server IP address
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPort</td>
+            <td>
+            </td>
+            <td><i>int</i>
+            </td>
+            <td>
+                Gets server port
+
+            </td>
+        </tr>
+        <tr>
+            <td>getEmail</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets server admin email.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getSoftware</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets software web server is using.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestURI">RequestURI</h2>
+<p>Encapsulates information about URI client requested.
+</p>
+<h3>Signature</h3>
+<p>class RequestURI </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects info based on values in $_SERVER superglobal
+
+            </td>
+        </tr>
+        <tr>
+            <td>getContextPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets context path from requested URL.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPage</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets original page requested path.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getQueryString</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets query string part from requested URL.
+
+            </td>
+        </tr>
+        <tr>
+            <td>parameters</td>
+            <td>
+            </td>
+            <td><i><a href="#ImmutableAttributesFactory">ImmutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulates query string parameters received from client.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RequestValidator">RequestValidator</h2>
+<p>Blueprint for class able to process request originally issued by client and extract requested page, path parameters and content type
+</p>
+<h3>Signature</h3>
+<p>interface RequestValidator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>getContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets request content type
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPage</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets requested resource/page
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPathParameter</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>string<br/>null</i>
+            </td>
+            <td>
+                Gets value of path parameter by name
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPathParameters</td>
+            <td>
+            </td>
+            <td><i>string[string]</i>
+            </td>
+            <td>
+                Gets all path parameters
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Response">Response</h2>
+<p>Compiles information about response
+</p>
+<h3>Signature</h3>
+<p>class Response </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $contentType
+            </td>
+            <td>
+            </td>
+            <td>
+                Constructs an empty response based on content type
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getOutputStream</td>
+            <td>
+            </td>
+            <td><i><a href="#ResponseStream">ResponseStream</a></i>
+            </td>
+            <td>
+                Gets response stream to work on.
+
+            </td>
+        </tr>
+        <tr>
+            <td>headers</td>
+            <td>
+            </td>
+            <td><i><a href="#MutableAttributesFactory">MutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that manages headers application will send back to user.
+
+            </td>
+        </tr>
+        <tr>
+            <td>sendRedirect</td>
+            <td><i>string</i> $location,<br/><i>boolean</i> $permanent,<br/><i>boolean</i> $preventCaching
+            </td>
+            <td>
+            </td>
+            <td>
+                Redirects to a new location.
+. This method is: <ul><li>static</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>setView</td>
+            <td><i>string</i> $viewPath
+            </td>
+            <td>
+            </td>
+            <td>
+                Forwards response to a file (aka "view")
+
+            </td>
+        </tr>
+        <tr>
+            <td>getView</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets view's absolute path.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setStatus</td>
+            <td><i>int</i> $code
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets HTTP response status by its numeric code.
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If status code is invalid.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getStatus</td>
+            <td>
+            </td>
+            <td><i><a href="#ResponseStatus">ResponseStatus</a></i>
+            </td>
+            <td>
+                Gets HTTP response status info.
+
+            </td>
+        </tr>
+        <tr>
+            <td>disable</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disables response. A disabled response will output nothing.
+
+            </td>
+        </tr>
+        <tr>
+            <td>isDisabled</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if response is disabled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>commit</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Commits response to client.
+
+            </td>
+        </tr>
+        <tr>
+            <td>attributes</td>
+            <td>
+            </td>
+            <td><i><a href="#MutableAttributesFactory">MutableAttributesFactory</a></i>
+            </td>
+            <td>
+                Gets a pointer to factory that encapsulates data that will be sent to views.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ResponseListener">ResponseListener</h2>
+<p>Listens on response object and alters response body.
+</p>
+<h3>Signature</h3>
+<p>abstract class ResponseListener implements <a href="#Runnable">Runnable</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves Application, Request and Response objects to be available in implemented run() methods.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ResponseStatus">ResponseStatus</h2>
+<p>Encapsulates HTTP response status logic in accordance to HTTP/1.1 specifications
+</p>
+<h3>Signature</h3>
+<p>class ResponseStatus </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>integer</i> $code
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets response HTTP status by its numeric code
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If incorrect numeric code is supplied.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getId</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets HTTP status numeric code.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getDescription</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets HTTP status text description code.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ResponseStream">ResponseStream</h2>
+<p>Manages operations with response stream, in which response is aggregated before it is committed.
+</p>
+<h3>Signature</h3>
+<p>class ResponseStream </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>get</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Returns information saved to stream.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>clear</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Clears stream
+
+            </td>
+        </tr>
+        <tr>
+            <td>write</td>
+            <td><i>string</i> $contents
+            </td>
+            <td>
+            </td>
+            <td>
+                Writes to stream.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $contents
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets stream directly.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>isEmpty</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Checks if stream is empty.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RestController">RestController</h2>
+<p>Defines an abstract RESTful controller. Classes extending it must have methods whose name is identical to request methods they are expecting.
+</p>
+<h3>Signature</h3>
+<p>abstract class RestController extends <a href="#Controller">Controller</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>run</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Executes logic of a Runnable
+. This method is: <ul><li>overriding run() @ <a href="#Runnable">Runnable</a></li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Route">Route</h2>
+<p>Encapsulates route information:
+
+Utility @ Application class.
+
+
+<ul><li>url: relative path requested</li><li>cpntroller: path to controller (relative to application/controllers folder)</li><li>view: path to view (relative to application/views folder)</li></ul></p>
+<h3>Signature</h3>
+<p>class Route </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $path,<br/><i>string</i> $controllerFile,<br/><i>string</i> $viewFile,<br/><i>string</i> $format
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves response format data detected from XML tag "route".
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets route path.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getController</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets controller name.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getView</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets view path.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getFormat</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets response format.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Runnable">Runnable</h2>
+<p>Defines blueprints of an object that can be ran by FrontController
+</p>
+<h3>Signature</h3>
+<p>interface Runnable </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>run</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Executes logic of a Runnable
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ServletException">ServletException</h2>
+<p>Exception thrown when Servlets API fails to handle request due to an unrecoverable error.
+</p>
+<h3>Signature</h3>
+<p>class ServletException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="Session">Session</h2>
+<p>Attributes factory enveloping operations with SESSION.
+</p>
+<h3>Signature</h3>
+<p>class Session implements <a href="#MutableAttributes">MutableAttributes</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>start</td>
+            <td><i><a href="#SessionSecurityOptions">SessionSecurityOptions</a></i> $sessionSecurityOptions,<br/><i>\SessionHandlerInterface</i> $sessionHandler
+            </td>
+            <td>
+            </td>
+            <td>
+                Starts session.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>isStarted</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if session is started.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>destroy</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Closes session.
+
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Adds/updates a session param.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If session not started.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets session param value.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If session not started.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Checks if session param exists.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If session not started.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>remove</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes a session param.
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If session not started.</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="SessionSecurityOptions">SessionSecurityOptions</h2>
+<p>Encapsulates session security settings on top of php.ini.
+</p>
+<h3>Signature</h3>
+<p>class SessionSecurityOptions </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>setSavePath</td>
+            <td><i>string</i> $path
+            </td>
+            <td>
+            </td>
+            <td>
+                Set path that is going to be used when storing sessions.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setName</td>
+            <td><i>string</i> $name
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets name of session cookie.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setExpiredTime</td>
+            <td><i>integer</i> $seconds
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets session cookie's expiration time.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setExpiredOnBrowserClose</td>
+            <td><i>boolean</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles session expiration on browser close.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setSecuredByHTTPS</td>
+            <td><i>boolean</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles restricting sessions to HTTPS only. If ON: HTTP cookies will not be accepted by server.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setSecuredByHTTPheaders</td>
+            <td><i>boolean</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles restricting sessions to HTTP headers only. If ON: cookies not sent via HTTP headers will be ignored by server.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setSecuredByReferrerCheck</td>
+            <td><i>string</i> $keyword
+            </td>
+            <td>
+            </td>
+            <td>
+                Toggles restricting sessions to those coming with a HTTP referrer LIKE %keyword%.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="UploadedFile">UploadedFile</h2>
+<p>Bean holding information about an uploaded file
+</p>
+<h3>Signature</h3>
+<p>class UploadedFile </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>array</i> $values
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects info based on values in $_SERVER superglobal
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets uploaded file name.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getLocation</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets location for the file uploaded
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets file mime type.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getSize</td>
+            <td>
+            </td>
+            <td><i>int</i>
+            </td>
+            <td>
+                Gets file size.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>move</td>
+            <td><i>string</i> $destination
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Moves uploaded file to destination.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Deletes uploaded file.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="UploadedFileTree">UploadedFileTree</h2>
+<p>Encapsulates information of files sent via multipart forms into UploadedFile objects.
+</p>
+<h3>Signature</h3>
+<p>class UploadedFileTree </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Converts information in $_FILES superglobal into a tree of UploadedFile objects
+
+            </td>
+        </tr>
+        <tr>
+            <td>toArray</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Decapsulates attributes as array.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ViewResolver">ViewResolver</h2>
+<p>Resolves response into output stream according to content type. Must be extended by classes implementing type-aware response (html, json).
+</p>
+<h3>Signature</h3>
+<p>abstract class ViewResolver implements <a href="#Runnable">Runnable</a></p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Saves Application and Response objects to be available in implemented getContent() methods.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>run</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Executes logic of a Runnable
+. This method is: <ul><li>overriding run() @ <a href="#Runnable">Runnable</a></li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getContent</td>
+            <td>
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets view content to write to output stream
+
+. This method is: <ul><li>abstract</li><li>protected</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ViewResolverLocator">ViewResolverLocator</h2>
+<p>Locates view resolver based on response format name of page requested.
+</p>
+<h3>Signature</h3>
+<p>class ViewResolverLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i>string</i> $contentType
+            </td>
+            <td>
+            </td>
+            <td>
+                Locates view resolver on disk based on requested page, response content type and data in XML
+
+. This method is: <ul><li>throwing <a href="#ServletException">ServletException</a> If view resolver file could not be located on disk.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getClassName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets controller class name.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="XMLException">XMLException</h2>
+<p>Exception thrown when XML that serves the application is misconfigured. This a fatal (unrecoverable) error that should terminate application.
+</p>
+<h3>Signature</h3>
+<p>class XMLException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>

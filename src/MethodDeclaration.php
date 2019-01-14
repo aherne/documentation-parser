@@ -1,13 +1,23 @@
 <?php
-namespace Lucinda\DocumentationValidator;
+namespace Lucinda\DocumentationParser;
 class MethodDeclaration {
     private $isStatic;
     private $isAbstract;
+    private $isPublic;
+    private $overrides;
     private $name;
     private $arguments = array();
     private $description;
     private $returnType;
     private $throws = array();
+    
+    public function getOverrides() {
+        return $this->overrides;
+    }
+    
+    public function setOverrides($overrides) {
+        $this->overrides = $overrides;
+    }
 
     public function getThrows()
     {
@@ -29,7 +39,7 @@ class MethodDeclaration {
         $this->returnType = $returnType;
     }
 
-    public function getisStatic()
+    public function getIsStatic()
     {
         return $this->isStatic;
     }
@@ -39,7 +49,7 @@ class MethodDeclaration {
         $this->isStatic = $isStatic;
     }
 
-    public function getisAbstract()
+    public function getIsAbstract()
     {
         return $this->isAbstract;
     }
@@ -47,6 +57,16 @@ class MethodDeclaration {
     public function setIsAbstract($isAbstract)
     {
         $this->isAbstract = $isAbstract;
+    }
+    
+    public function getIsPublic()
+    {
+        return $this->isPublic;
+    }
+    
+    public function setIsPublic($isPublic)
+    {
+        $this->isPublic = $isPublic;
     }
 
     public function getName()

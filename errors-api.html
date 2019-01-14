@@ -1,0 +1,1020 @@
+
+<h2 id="Application">Application</h2>
+<p>Detects settings necessary to configure MVC Errors API based on contents of XML file and development environment:
+
+<ul><li>default content types of rendered response</li><li>location of controllers that map exceptions thrown</li><li>location of views that map exceptions thrown</li><li>possible objects to use in reporting error to</li><li>possible objects to use in rendering response</li><li>possible routes that map controllers/views to exception</li></ul></p>
+<h3>Signature</h3>
+<p>class Application </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $xmlPath,<br/><i>string</i> $developmentEnvironment,<br/><i>string</i> $includePath
+            </td>
+            <td>
+            </td>
+            <td>
+                Performs detection process.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If XML is misconfigured.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getDefaultContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets default response content type.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getControllersPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to controllers folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getReportersPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to reporters folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getRenderersPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to renderers folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getViewsPath</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets path to views folder.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getDisplayErrors</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Gets whether or not error details should be displayed.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getReporters</td>
+            <td>
+            </td>
+            <td><i>\SimpleXMLElement[string]</i>
+            </td>
+            <td>
+                Gets ErrorReporter instances that will later on be used to report exception to
+
+            </td>
+        </tr>
+        <tr>
+            <td>getRenderers</td>
+            <td>
+            </td>
+            <td><i>\SimpleXMLElement[string]</i>
+            </td>
+            <td>
+                Gets ErrorRenderer instances that will later be used to render response to exception
+
+            </td>
+        </tr>
+        <tr>
+            <td>getRoutes</td>
+            <td>
+            </td>
+            <td><i>Route[string]</i>
+            </td>
+            <td>
+                Gets routes that map exceptions that will later on be used to resolve controller & view.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getTag</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>\SimpleXMLElement</i>
+            </td>
+            <td>
+                Gets tag based on name from main XML root or referenced XML file if "ref" attribute was set
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Controller">Controller</h2>
+<p>Encapsulates an abstract MVC controller that routes exceptions that once extended will be useful to:
+
+<ul><li>enable exception-specific reporting policies</li><li>allow exception-specific view setup (eg: exceptions that map to multiple views or views using templating)</li><li>any other response-changing strategies</li></ul></p>
+<h3>Signature</h3>
+<p>abstract class Controller </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Controller constructor.
+
+            </td>
+        </tr>
+        <tr>
+            <td>run</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Executes controller logic. Here is where each extending controller will need to write its logic to.
+This method is: <ul><li>abstract</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ControllerLocator">ControllerLocator</h2>
+<p>Locates MVC controller on disk based on controller path &amp; route detected beforehand,
+then instances it from received parameters
+</p>
+<h3>Signature</h3>
+<p>class ControllerLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Starts detection process.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If detection fails due to file/class not found.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getController</td>
+            <td>
+            </td>
+            <td><i><a href="#Controller">Controller</a></i>
+            </td>
+            <td>
+                Gets controller found.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorHandler">ErrorHandler</h2>
+<p>Blueprint for handling an Throwable/Exception that got original client's request go to STDERR
+</p>
+<h3>Signature</h3>
+<p>interface ErrorHandler </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>handle</td>
+            <td><i>\Exception|\Throwable</i> $exception
+            </td>
+            <td>
+            </td>
+            <td>
+                Handles errors by delegating to registered storage mediums (if any) then output using display method (if any)
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorRenderer">ErrorRenderer</h2>
+<p>Defines blueprint for rendering a response back to caller after an exception fed STDERR
+</p>
+<h3>Signature</h3>
+<p>interface ErrorRenderer </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>render</td>
+            <td><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Renders response to screen.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorRenderersFinder">ErrorRenderersFinder</h2>
+<p>Locates &lt;renderer&gt; tags in XML and builds .
+</p>
+<h3>Signature</h3>
+<p>class ErrorRenderersFinder </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>\SimpleXMLElement</i> $xml
+            </td>
+            <td>
+            </td>
+            <td>
+                ErrorRenderersFinder constructor.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If XML is misconfigured.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getRenderers</td>
+            <td>
+            </td>
+            <td><i>\SimpleXMLElement[string]</i>
+            </td>
+            <td>
+                Gets found renderers
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorReporter">ErrorReporter</h2>
+<p>Defines blueprint for reporting an exception that fed STDERR flow to a storage medium (eg: log file)
+</p>
+<h3>Signature</h3>
+<p>interface ErrorReporter </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>report</td>
+            <td><i><a href="#Request">Request</a></i> $request
+            </td>
+            <td>
+            </td>
+            <td>
+                Reports error info to a storage medium.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorReportersFinder">ErrorReportersFinder</h2>
+<p>Locates based on reporters tag @ XML and instances found reporters able to log error info to a storage medium.
+</p>
+<h3>Signature</h3>
+<p>class ErrorReportersFinder </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>\SimpleXMLElement</i> $xml
+            </td>
+            <td>
+            </td>
+            <td>
+                ErrorReportersFinder constructor.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If XML is misconfigured.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getReporters</td>
+            <td>
+            </td>
+            <td><i>\SimpleXMLElement[string]</i>
+            </td>
+            <td>
+                Gets found reporters by their class name.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ErrorType">ErrorType</h2>
+<p>Enum that contains all available error types associated to a handled exception via following constants:
+
+<ul><li>NONE: handled exception is not an error</li><li>SERVER: handled exception was caused by server connection failing or being mishandled</li><li>CLIENT: handled exception was caused by caller trying to perform illegal operations on server (eg: trying XSS/CSRF)</li><li>SYNTAX: handled exception was thrown automatically after developer performed syntax errors in code (eg: PHP, SQL)</li><li>LOGICAL: handled exception was thrown by developer to signal logical errors in application flow</li></ul></p>
+<h3>Signature</h3>
+<p>class ErrorType </p>
+<h2 id="Exception">Exception</h2>
+<p>Exception thrown when MVC Errors API fails due to a fatal error
+</p>
+<h3>Signature</h3>
+<p>class Exception extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h2 id="FrontController">FrontController</h2>
+<p>Error handler that bootstraps all uncaught exceptions and PHP errors as a STDERR front controller that feeds on
+exception instances instead of requests.
+</p>
+<h3>Signature</h3>
+<p>class FrontController implements <a href="#ErrorHandler">ErrorHandler</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>string</i> $documentDescriptor,<br/><i>string</i> $developmentEnvironment,<br/><i>string</i> $includePath,<br/><i><a href="#ErrorHandler">ErrorHandler</a></i> $emergencyHandler
+            </td>
+            <td>
+            </td>
+            <td>
+                Redirects all uncaught exceptions and PHP errors in current application to itself.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setContentType</td>
+            <td><i>string</i> $contentType
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets desired content type of rendered response
+
+            </td>
+        </tr>
+        <tr>
+            <td>handle</td>
+            <td><i>\Exception|\Throwable</i> $exception
+            </td>
+            <td>
+            </td>
+            <td>
+                Handles errors by delegating to registered storage mediums (if any) then output using display method (if any)
+This method is: <ul><li>overriding handle() @ <a href="#ErrorHandler">ErrorHandler</a></li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="PHPException">PHPException</h2>
+<p>Exception caught automatically when a PHP error is encountered.
+</p>
+<h3>Signature</h3>
+<p>class PHPException extends <a href="http://php.net/manual/ro/class.exception.php" target="_blank">\Exception</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>setErrorHandler</td>
+            <td><i><a href="#ErrorHandler">ErrorHandler</a></i> $errorHandler
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets object to which error handling will be delegated to.
+
+This method is: <ul><li>static</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getErrorHandler</td>
+            <td>
+            </td>
+            <td><i><a href="#ErrorHandler">ErrorHandler</a></i>
+            </td>
+            <td>
+                Gets object to which error handling are delegated to.
+
+This method is: <ul><li>static</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>nonFatalError</td>
+            <td><i>integer</i> $errorNumber,<br/><i>string</i> $message,<br/><i>string</i> $file,<br/><i>integer</i> $line
+            </td>
+            <td>
+            </td>
+            <td>
+                Function called automatically when a non-fatal PHP error is encountered.
+
+This method is: <ul><li>static</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>fatalError</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Function called automatically when a fatal PHP error is encountered.
+This method is: <ul><li>static</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RendererLocator">RendererLocator</h2>
+<p>Locates renderer on disk based on renderers path &amp; &lt;renderer&gt; tag that matches response content type
+then instances it
+</p>
+<h3>Signature</h3>
+<p>class RendererLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Response">Response</a></i> $response
+            </td>
+            <td>
+            </td>
+            <td>
+                Starts detection process.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If detection fails due to file/class not found.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getRenderer</td>
+            <td>
+            </td>
+            <td><i><a href="#ErrorRenderer">ErrorRenderer</a></i>
+            </td>
+            <td>
+                Gets renderer found.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ReportersLocator">ReportersLocator</h2>
+<p>Locates reporters on disk based on reporters path &amp; &lt;reporter&gt; tags detected beforehand,
+then instances them
+</p>
+<h3>Signature</h3>
+<p>class ReportersLocator </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application
+            </td>
+            <td>
+            </td>
+            <td>
+                Starts detection process.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If detection fails due to file/class not found.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getReporters</td>
+            <td>
+            </td>
+            <td><i>ErrorReporter[]</i>
+            </td>
+            <td>
+                Gets reporters found.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Request">Request</h2>
+<p>Encapsulates a STDERR request by matching routes @ XML with exception handled
+</p>
+<h3>Signature</h3>
+<p>class Request </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i>\Error|\Exception</i> $exception
+            </td>
+            <td>
+            </td>
+            <td>
+                Detects route based on exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getRoute</td>
+            <td>
+            </td>
+            <td><i><a href="#Route">Route</a></i>
+            </td>
+            <td>
+                Gets route that matches exception received.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getException</td>
+            <td>
+            </td>
+            <td><i>\Error<br/>\Exception</i>
+            </td>
+            <td>
+                Gets exception handled
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Response">Response</h2>
+<p>Encapsulates error response that will be displayed back to caller
+</p>
+<h3>Signature</h3>
+<p>class Response </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i><a href="#Application">Application</a></i> $application,<br/><i><a href="#Request">Request</a></i> $request,<br/><i>string</i> $customContentType
+            </td>
+            <td>
+            </td>
+            <td>
+                View constructor.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setView</td>
+            <td><i>string</i> $view
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets relative path of view that contains response body.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getView</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets relative path of view that contains response body.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setHttpStatus</td>
+            <td><i>integer</i> $httpStatus
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets response HTTP status
+
+            </td>
+        </tr>
+        <tr>
+            <td>getHttpStatus</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets response HTTP status
+
+            </td>
+        </tr>
+        <tr>
+            <td>setBody</td>
+            <td><i>string</i> $body
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets response body
+
+            </td>
+        </tr>
+        <tr>
+            <td>getBody</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets response body
+
+            </td>
+        </tr>
+        <tr>
+            <td>setHeader</td>
+            <td><i>string</i> $name,<br/><i>string</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets response header by name and value.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getHeader</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets value of response header by name or null if not found
+
+            </td>
+        </tr>
+        <tr>
+            <td>getHeaders</td>
+            <td>
+            </td>
+            <td><i>string[string]</i>
+            </td>
+            <td>
+                Gets response headers
+
+            </td>
+        </tr>
+        <tr>
+            <td>setAttribute</td>
+            <td><i>string</i> $name,<br/><i>mixed</i> $value
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets response attribute by name and value.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getAttribute</td>
+            <td><i>string</i> $name
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value of response attribute by name or null if not found
+
+            </td>
+        </tr>
+        <tr>
+            <td>getAttributes</td>
+            <td>
+            </td>
+            <td><i>string[string]</i>
+            </td>
+            <td>
+                Gets response attributes
+
+            </td>
+        </tr>
+        <tr>
+            <td>redirect</td>
+            <td><i>string</i> $location,<br/><i>boolean</i> $permanent,<br/><i>boolean</i> $preventCaching
+            </td>
+            <td><i>void</i>
+            </td>
+            <td>
+                Redirects to a new location.
+
+            </td>
+        </tr>
+        <tr>
+            <td>commit</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Commits response to client.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Route">Route</h2>
+<p>Encapsulates a route that matches a handled exception
+</p>
+<h3>Signature</h3>
+<p>class Route </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>getController</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets controller class name that handles exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getView</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets file that holds what is displayed when error response is rendered.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getHttpStatus</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets HTTP status associated to exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getErrorType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets error type associated to exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>getContentType</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets content type associated to exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setController</td>
+            <td><i>string</i> $controller
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets controller class name that handles exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setView</td>
+            <td><i>string</i> $view
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets file that holds what is displayed when error response is rendered.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setHttpStatus</td>
+            <td><i>string</i> $httpStatus
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets HTTP status associated to exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setContentType</td>
+            <td><i>string</i> $contentType
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets content type associated to exception handled.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setErrorType</td>
+            <td><i>string</i> $errorType
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets error type associated to exception handled.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RoutesFinder">RoutesFinder</h2>
+<p>Locates based on exceptions tag @ XML and instances found routes able to log error info to a storage medium.
+</p>
+<h3>Signature</h3>
+<p>class RoutesFinder </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>__construct</td>
+            <td><i>\SimpleXMLElement</i> $xml
+            </td>
+            <td>
+            </td>
+            <td>
+                RouteFinder constructor.
+This method is: <ul><li>throwing <a href="#Exception">Exception</a> If XML is misconfigured.</li></ul>
+            </td>
+        </tr>
+        <tr>
+            <td>getRoutes</td>
+            <td>
+            </td>
+            <td><i>Route[string]</i>
+            </td>
+            <td>
+                Gets routes detected.
+
+            </td>
+        </tr>
+    </tbody>
+</table>

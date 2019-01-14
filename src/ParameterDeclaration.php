@@ -1,5 +1,5 @@
 <?php
-namespace Lucinda\DocumentationValidator;
+namespace Lucinda\DocumentationParser;
 class ParameterDeclaration {
     private $name;
     private $type;

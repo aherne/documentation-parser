@@ -1,5 +1,5 @@
 <?php
-namespace Lucinda\DocumentationValidator;
+namespace Lucinda\DocumentationParser;
 
 class ClassDeclaration {
     private $isAbstract;
@@ -45,9 +45,9 @@ class ClassDeclaration {
         return $this->extends;
     }
 
-    public function setExtends($extends)
+    public function setExtends($className)
     {
-        $this->extends = $extends;
+        $this->extends = $className;
     }
 
     public function getImplements()
@@ -55,9 +55,9 @@ class ClassDeclaration {
         return $this->implements;
     }
 
-    public function setImplements($implements)
+    public function setImplements($className)
     {
-        $this->implements = $implements;
+        $this->implements[] = $className;
     }
 
     public function getMethods()
@@ -67,7 +67,7 @@ class ClassDeclaration {
 
     public function addMethod($method)
     {
-        $this->methods[] = $method;
+        $this->methods[$method->getName()] = $method;
     }
 
     public function getDescription()

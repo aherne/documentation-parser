@@ -1,5 +1,5 @@
 <?php
-namespace Lucinda\DocumentationValidator;
+namespace Lucinda\DocumentationParser;
 
 class Validator
 {
@@ -12,12 +12,15 @@ class Validator
     private function validate(ClassParser $parser) {
         $results = $parser->getResults();
         foreach($results as $class) {
-            if($class->getDescription()) {
+            if(!$class->getDescription()) {
                 $this->errors[]="Class ".$class->getName()." lacks description";
             }
 
             $methods = $class->getMethods();
             foreach($methods as $method) {
+                if($method->getOverrides()) {
+                    continue;
+                }
                 if(!$method->getDescription()) {
                     $this->errors[]="Method ".$method->getName()." @ ".$class->getName()." lacks description";
                 }
@@ -26,10 +29,16 @@ class Validator
                         $this->errors[]="Method ".$method->getName()." @ ".$class->getName()." lacks return type";
                     }
                 }
-                $parameters = $method->getParameters();
+                $parameters = $method->getArguments();
                 foreach($parameters as $parameter) {
                     if(!$parameter->getType()) {
-                        $this->errors[]="Parameter ".$parameter->getName()." ".$method->getName()." @ ".$class->getName()." lacks type";
+                        $this->errors[]="Parameter ".$parameter->getName()." @ ".$method->getName()." @ ".$class->getName()." lacks type";
+                    }
+                }
+                $throws = $method->getThrows();
+                foreach($throws as $throw) {
+                    if(!$throw->getDescription()) {
+                        $this->errors[]="Throws ".$throw->getType()." @ ".$method->getName()." @ ".$class->getName()." lacks description";
                     }
                 }
             }

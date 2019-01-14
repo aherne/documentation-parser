@@ -1,0 +1,1227 @@
+
+<h2 id="APCDataSource">APCDataSource</h2>
+<p>Encapsulates a data source that does nothign but identify provider.
+</p>
+<h3>Signature</h3>
+<p>class APCDataSource implements <a href="#DataSource">DataSource</a> </p>
+<h2 id="APCDriver">APCDriver</h2>
+<p>Defines APC implementation of nosql operations.
+</p>
+<h3>Signature</h3>
+<p>class APCDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="APCuDataSource">APCuDataSource</h2>
+<p>Encapsulates a data source that does nothign but identify provider.
+</p>
+<h3>Signature</h3>
+<p>class APCuDataSource implements <a href="#DataSource">DataSource</a> </p>
+<h2 id="APCuDriver">APCuDriver</h2>
+<p>Defines APCu implementation of nosql operations.
+</p>
+<h3>Signature</h3>
+<p>class APCuDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="CouchbaseDataSource">CouchbaseDataSource</h2>
+<p>Encapsulates couchbase server connection & bucket data.
+</p>
+<h3>Signature</h3>
+<p>class CouchbaseDataSource implements <a href="#DataSource">DataSource</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>setHost</td>
+            <td><i>string</i> $host
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets Couchbase cluster host name (or list of hosts separated by commas)
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getHost</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets Couchbase cluster host name.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setAuthenticationInfo</td>
+            <td><i>string</i> $username,<br/><i>string</i> $password
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets credentials required by connection to server.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getUserName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets value of username necessary for connection credentials.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getPassword</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets value of password necessary for connection credentials.
+
+            </td>
+        </tr>
+        <tr>
+            <td>setBucketInfo</td>
+            <td><i>string</i> $bucketName,<br/><i>string</i> $bucketPassword
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets information about couchbase bucket connection will be using (optionally with a password as well)
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getBucketName</td>
+            <td>
+            </td>
+            <td><i>string</i>
+            </td>
+            <td>
+                Gets name of bucket that holds your key-value store.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getBucketPassword</td>
+            <td>
+            </td>
+            <td><i>string<br/>null</i>
+            </td>
+            <td>
+                Gets password necessary to access bucket
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="CouchbaseDriver">CouchbaseDriver</h2>
+<p>Defines couchbase implementation of nosql operations.
+</p>
+<h3>Signature</h3>
+<p>class CouchbaseDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>connect</td>
+            <td><i><a href="#DataSource">DataSource</a></i> $dataSource
+            </td>
+            <td>
+            </td>
+            <td>
+                Connects to nosql provider
+<p><strong>Overrides</strong>: connect in class Server</p><p class="throws">Throws <i><a href="#ConfigurationException">ConfigurationException</a></i>: If developer misconfigures data source.<br/>Throws <i><a href="#ConnectionException">ConnectionException</a></i>: If connection to database server fails.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>disconnect</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disconnects from nosql provider
+<p><strong>Overrides</strong>: disconnect in class Server</p>
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>getDriver</td>
+            <td>
+            </td>
+            <td><i>\CouchbaseBucket</i>
+            </td>
+            <td>
+                Gets a pointer to native wrapped object for advanced operations.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="DataSource">DataSource</h2>
+<p>Implements a data source.
+</p>
+<h3>Signature</h3>
+<p>interface DataSource </p>
+<h2 id="Driver">Driver</h2>
+<p>Defines data manipulation operations in a nosql database
+</p>
+<h3>Signature</h3>
+<p>interface Driver </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MemcacheDataSource">MemcacheDataSource</h2>
+<p>Encapsulates a data source to use for memcached connections via memcache driver.
+</p>
+<h3>Signature</h3>
+<p>class MemcacheDataSource extends <a href="#ServerDataSource">ServerDataSource</a> implements <a href="#DataSource">DataSource</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>getDefaultPort</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets default port specific to no-sql vendor.
+
+<p><strong>Overrides</strong>: getDefaultPort in class ServerDataSource</p><p><strong>Access modifiers</strong>: abstract, protected</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MemcacheDriver">MemcacheDriver</h2>
+<p>Defines memcache implementation of nosql operations.
+</p>
+<h3>Signature</h3>
+<p>class MemcacheDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>connect</td>
+            <td><i><a href="#DataSource">DataSource</a></i> $dataSource
+            </td>
+            <td>
+            </td>
+            <td>
+                Connects to nosql provider
+<p><strong>Overrides</strong>: connect in class Server</p><p class="throws">Throws <i><a href="#ConfigurationException">ConfigurationException</a></i>: If developer misconfigures data source.<br/>Throws <i><a href="#ConnectionException">ConnectionException</a></i>: If connection to database server fails.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>disconnect</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disconnects from nosql provider
+<p><strong>Overrides</strong>: disconnect in class Server</p>
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>getDriver</td>
+            <td>
+            </td>
+            <td><i>\Memcache</i>
+            </td>
+            <td>
+                Gets a pointer to native wrapped object for advanced operations.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MemcachedDataSource">MemcachedDataSource</h2>
+<p>Encapsulates a data source to use for memcached connections via memcached driver.
+</p>
+<h3>Signature</h3>
+<p>class MemcachedDataSource extends <a href="#ServerDataSource">ServerDataSource</a> implements <a href="#DataSource">DataSource</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>getDefaultPort</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets default port specific to no-sql vendor.
+
+<p><strong>Overrides</strong>: getDefaultPort in class ServerDataSource</p><p><strong>Access modifiers</strong>: abstract, protected</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="MemcachedDriver">MemcachedDriver</h2>
+<p>Defines memcached implementation of nosql operations.
+</p>
+<h3>Signature</h3>
+<p>class MemcachedDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>connect</td>
+            <td><i><a href="#DataSource">DataSource</a></i> $dataSource
+            </td>
+            <td>
+            </td>
+            <td>
+                Connects to nosql provider
+<p><strong>Overrides</strong>: connect in class Server</p><p class="throws">Throws <i><a href="#ConfigurationException">ConfigurationException</a></i>: If developer misconfigures data source.<br/>Throws <i><a href="#ConnectionException">ConnectionException</a></i>: If connection to database server fails.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>disconnect</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disconnects from nosql provider
+<p><strong>Overrides</strong>: disconnect in class Server</p>
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>getDriver</td>
+            <td>
+            </td>
+            <td><i>\Memcached</i>
+            </td>
+            <td>
+                Gets a pointer to native wrapped object for advanced operations.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RedisDataSource">RedisDataSource</h2>
+<p>Encapsulates a data source to use for redis connections.
+</p>
+<h3>Signature</h3>
+<p>class RedisDataSource extends <a href="#ServerDataSource">ServerDataSource</a> implements <a href="#DataSource">DataSource</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>getDefaultPort</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets default port specific to no-sql vendor.
+
+<p><strong>Overrides</strong>: getDefaultPort in class ServerDataSource</p><p><strong>Access modifiers</strong>: abstract, protected</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="RedisDriver">RedisDriver</h2>
+<p>Defines redis implementation of nosql operations.
+DOCS: https://github.com/nicolasff/phpredis/blob/master/README.markdown#connect-open
+</p>
+<h3>Signature</h3>
+<p>class RedisDriver implements <a href="#Driver">Driver</a> </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>connect</td>
+            <td><i><a href="#DataSource">DataSource</a></i> $dataSource
+            </td>
+            <td>
+            </td>
+            <td>
+                Connects to nosql provider
+<p><strong>Overrides</strong>: connect in class Server</p><p class="throws">Throws <i><a href="#ConfigurationException">ConfigurationException</a></i>: If developer misconfigures data source.<br/>Throws <i><a href="#ConnectionException">ConnectionException</a></i>: If connection to database server fails.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>disconnect</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disconnects from nosql provider
+<p><strong>Overrides</strong>: disconnect in class Server</p>
+            </td>
+        </tr>
+        <tr>
+            <td>set</td>
+            <td><i>string</i> $key,<br/><i>mixed</i> $value,<br/><i>integer</i> $expiration
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets value to store that will be accessible by key.
+
+<p><strong>Overrides</strong>: set in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>get</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>mixed</i>
+            </td>
+            <td>
+                Gets value by key.
+
+<p><strong>Overrides</strong>: get in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>contains</td>
+            <td><i>string</i> $key
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if key to access value from exists.
+<p><strong>Overrides</strong>: contains in class Driver</p>
+            </td>
+        </tr>
+        <tr>
+            <td>delete</td>
+            <td><i>string</i> $key
+            </td>
+            <td>
+            </td>
+            <td>
+                Deletes value by key.
+
+<p><strong>Overrides</strong>: delete in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>increment</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Increments a counter by key.
+
+<p><strong>Overrides</strong>: increment in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>decrement</td>
+            <td><i>string</i> $key,<br/><i>integer</i> $offset
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Decrements a counter by key.
+
+<p><strong>Overrides</strong>: decrement in class Driver</p><p class="throws">Throws <i><a href="#KeyNotFoundException">KeyNotFoundException</a></i>: If key doesn't exist in store.<br/>Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>flush</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Flushes DB of all keys.
+<p><strong>Overrides</strong>: flush in class Driver</p><p class="throws">Throws <i><a href="#OperationFailedException">OperationFailedException</a></i>: If operation didn't succeed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>getDriver</td>
+            <td>
+            </td>
+            <td><i>\Redis<br/>\RedisCluster</i>
+            </td>
+            <td>
+                Gets a pointer to native wrapped object for advanced operations.
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="Server">Server</h2>
+<p>Defines connection operations to a NoSQL server
+</p>
+<h3>Signature</h3>
+<p>interface Server </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>connect</td>
+            <td><i><a href="#DataSource">DataSource</a></i> $dataSource
+            </td>
+            <td>
+            </td>
+            <td>
+                Connects to nosql provider
+<p class="throws">Throws <i><a href="#ConfigurationException">ConfigurationException</a></i>: If developer misconfigures data source.<br/>Throws <i><a href="#ConnectionException">ConnectionException</a></i>: If connection to database server fails.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>disconnect</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Disconnects from nosql provider
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ServerDataSource">ServerDataSource</h2>
+<p>Encapsulates operations to use on a NoSQL data source that requires a third party server installed
+</p>
+<h3>Signature</h3>
+<p>abstract class ServerDataSource </p>
+<h3>Methods</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Method</td>
+            <td>Arguments</td>
+            <td>Returns</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>addServer</td>
+            <td><i>string</i> $host,<br/><i>integer</i> $port
+            </td>
+            <td>
+            </td>
+            <td>
+                Adds server to connection pool.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getServers</td>
+            <td>
+            </td>
+            <td><i>array</i>
+            </td>
+            <td>
+                Gets servers that take part of connection pool.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setTimeout</td>
+            <td><i>integer</i> $seconds
+            </td>
+            <td>
+            </td>
+            <td>
+                Sets operations timeout.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getTimeout</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets operations timeout.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>setPersistent</td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                Signals that client wants persistent connections.
+
+            </td>
+        </tr>
+        <tr>
+            <td>isPersistent</td>
+            <td>
+            </td>
+            <td><i>boolean</i>
+            </td>
+            <td>
+                Checks if client wanted connections to be persistent.
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>getDefaultPort</td>
+            <td>
+            </td>
+            <td><i>integer</i>
+            </td>
+            <td>
+                Gets default port specific to no-sql vendor.
+
+<p><strong>Access modifiers</strong>: abstract, protected</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2 id="ConfigurationException">ConfigurationException</h2>
+<p>Exception thrown when developer misconfigures datasource for a NoSQL provider
+</p>
+<h3>Signature</h3>
+<p>class ConfigurationException extends <a href="#\Exception">\Exception</a> </p>
+<h2 id="ConnectionException">ConnectionException</h2>
+<p>Exception thrown when connection to a NoSQL server fails.
+</p>
+<h3>Signature</h3>
+<p>class ConnectionException extends <a href="#\Exception">\Exception</a> </p>
+<h2 id="KeyNotFoundException">KeyNotFoundException</h2>
+<p>Exception thrown when a set/delete is performed on a key that doesn't exist.
+</p>
+<h3>Signature</h3>
+<p>class KeyNotFoundException extends <a href="#\Exception">\Exception</a> </p>
+<h2 id="OperationFailedException">OperationFailedException</h2>
+<p>Exception thrown when an operation was rejected by third party nosql provider for some reason.
+</p>
+<h3>Signature</h3>
+<p>class OperationFailedException extends <a href="#\Exception">\Exception</a> </p>
