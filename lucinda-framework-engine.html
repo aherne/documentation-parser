@@ -18,7 +18,7 @@
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -30,20 +30,20 @@
         </tr>
         <tr>
             <td>setLogger</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
-            <td><i>\Lucinda\Logging\Logger</i>
+            <td><i><a href="/logging/reference-guide#Logger">Logger</a></i>
             </td>
             <td>
                 Detects Logger instance based on XML tag supplied
-. This method is: <ul><li>abstract</li><li>protected</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is invalid.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources do not exist.</li></ul>
+. This method is: <ul><li>abstract</li><li>protected</li><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is invalid.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources do not exist.</li></ul>
             </td>
         </tr>
         <tr>
             <td>getLogger</td>
             <td>
             </td>
-            <td><i>\Lucinda\Logging\Logger</i>
+            <td><i><a href="/logging/reference-guide#Logger">Logger</a></i>
             </td>
             <td>
                 Gets detected logger
@@ -71,21 +71,21 @@
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $page,<br/><i>string</i> $contextPath,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrfTokenDetector,<br/><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $page,<br/><i>string</i> $contextPath,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrfTokenDetector,<br/><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers
             </td>
             <td>
             </td>
             <td>
                 Runs authentication logic.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is invalid</li><li>throwing <a href="#SecurityPacket">SecurityPacket</a> If authentication encounters a situation where execution cannot continue and redirection is required</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is invalid</li><li>throwing <a href="#SecurityPacket">SecurityPacket</a> If authentication encounters a situation where execution cannot continue and redirection is required</li></ul>
             </td>
         </tr>
         <tr>
             <td>getOAuth2Drivers</td>
             <td>
             </td>
-            <td><i>array[string:OAuth2\Driver]</i>
+            <td><i><a href="/oauth2-client/reference-guide#Driver">Driver</a>[string]</i>
             </td>
             <td>
                 /*
@@ -115,7 +115,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
 
         <tr>
             <td>setResult</td>
-            <td><i>\Lucinda\WebSecurity\AuthenticationResult</i> $result,<br/><i>string</i> $sourcePage,<br/><i>string</i> $targetPage
+            <td><i><a href="/web-security/reference-guide#AuthenticationResult">AuthenticationResult</a></i> $result,<br/><i>string</i> $sourcePage,<br/><i>string</i> $targetPage
             </td>
             <td>
             </td>
@@ -128,7 +128,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
             <td>getResult</td>
             <td>
             </td>
-            <td><i>\Lucinda\WebSecurity\AuthenticationResult</i>
+            <td><i><a href="/web-security/reference-guide#AuthenticationResult">AuthenticationResult</a></i>
             </td>
             <td>
                 Gets authentication result.
@@ -156,13 +156,13 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $page,<br/><i>string</i> $contextPath,<br/><i>integer|string</i> $userID
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $page,<br/><i>string</i> $contextPath,<br/><i>integer|string</i> $userID
             </td>
             <td>
             </td>
             <td>
                 Runs authorization logic.
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is invalid</li><li>throwing <a href="#SecurityPacket">SecurityPacket</a> If authorization encounters a situation where execution cannot continue and redirection is required</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is invalid</li><li>throwing <a href="#SecurityPacket">SecurityPacket</a> If authorization encounters a situation where execution cannot continue and redirection is required</li></ul>
             </td>
         </tr>
     </tbody>
@@ -186,7 +186,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
 
         <tr>
             <td>setResult</td>
-            <td><i>\Lucinda\WebSecurity\AuthorizationResult</i> $result
+            <td><i><a href="/web-security/reference-guide#AuthorizationResult">AuthorizationResult</a></i> $result
             </td>
             <td>
             </td>
@@ -200,7 +200,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
             <td>getResult</td>
             <td>
             </td>
-            <td><i>\Lucinda\WebSecurity\AuthorizationResult</i>
+            <td><i><a href="/web-security/reference-guide#AuthorizationResult">AuthorizationResult</a></i>
             </td>
             <td>
                 Gets result of authorization attempt
@@ -215,7 +215,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
 of implementing setters for etag and last modified time according to their specific business needs.
 </p>
 <h3>Signature</h3>
-<p>abstract class CacheableDriver implements <a href="#\Lucinda\Caching\Cacheable">\Lucinda\Caching\Cacheable</a></p>
+<p>abstract class CacheableDriver implements <a href="/http-caching/reference-guide#Cacheable">Cacheable</a></p>
 <h3>Methods</h3>
 <table>
     <thead>
@@ -230,7 +230,7 @@ of implementing setters for etag and last modified time according to their speci
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request,<br/><i>\Lucinda\MVC\STDOUT\Response</i> $response
+            <td><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request,<br/><i><a href="/stdout-mvc/reference-guide#Response">Response</a></i> $response
             </td>
             <td>
             </td>
@@ -255,11 +255,12 @@ of implementing setters for etag and last modified time according to their speci
             <td>getTime</td>
             <td>
             </td>
-            <td>
+            <td><i>integer</i>
             </td>
             <td>
-                {@inheritDoc}
-. This method is: <ul><li>overriding getTime() @ <a href="#\Lucinda\Caching\Cacheable">\Lucinda\Caching\Cacheable</a></li></ul>
+                Gets last modified time that applies to resource.
+
+. This method is: <ul><li>overriding getTime() @ <a href="/http-caching/reference-guide#Cacheable">Cacheable</a></li></ul>
             </td>
         </tr>
         <tr>
@@ -277,11 +278,12 @@ of implementing setters for etag and last modified time according to their speci
             <td>getEtag</td>
             <td>
             </td>
-            <td>
+            <td><i>string</i>
             </td>
             <td>
-                {@inheritDoc}
-. This method is: <ul><li>overriding getEtag() @ <a href="#\Lucinda\Caching\Cacheable">\Lucinda\Caching\Cacheable</a></li></ul>
+                Gets etag that matches resource.
+
+. This method is: <ul><li>overriding getEtag() @ <a href="/http-caching/reference-guide#Cacheable">Cacheable</a></li></ul>
             </td>
         </tr>
     </tbody>
@@ -305,14 +307,14 @@ of implementing setters for etag and last modified time according to their speci
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request,<br/><i>\Lucinda\MVC\STDOUT\Response</i> $response
+            <td><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request,<br/><i><a href="/stdout-mvc/reference-guide#Response">Response</a></i> $response
             </td>
             <td>
             </td>
             <td>
                 Binds APIs to XML for HTTP cache validation
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -336,7 +338,7 @@ of implementing setters for etag and last modified time according to their speci
 
         <tr>
             <td>setCachingDisabled</td>
-            <td><i>null|boolean</i> $value
+            <td><i>boolean</i> $value
             </td>
             <td>
             </td>
@@ -350,7 +352,7 @@ of implementing setters for etag and last modified time according to their speci
             <td>getCachingDisabled</td>
             <td>
             </td>
-            <td><i>null<br/>boolean</i>
+            <td><i>boolean</i>
             </td>
             <td>
                 Checks whether or not caching is disabled.
@@ -360,7 +362,7 @@ of implementing setters for etag and last modified time according to their speci
         </tr>
         <tr>
             <td>setExpirationPeriod</td>
-            <td><i>null|integer</i> $expires
+            <td><i>integer</i> $expires
             </td>
             <td>
             </td>
@@ -374,7 +376,7 @@ of implementing setters for etag and last modified time according to their speci
             <td>getExpirationPeriod</td>
             <td>
             </td>
-            <td><i>null[<br/>integer</i>
+            <td><i>integer</i>
             </td>
             <td>
                 Gets period from original server response by which entry expires in local (browser) cache.
@@ -427,7 +429,7 @@ of implementing setters for etag and last modified time according to their speci
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request,<br/><i>\Lucinda\MVC\STDOUT\Response</i> $response
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request,<br/><i><a href="/stdout-mvc/reference-guide#Response">Response</a></i> $response
             </td>
             <td>
             </td>
@@ -471,7 +473,7 @@ global caching settings into a CachingPolicy object.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request,<br/><i>\Lucinda\MVC\STDOUT\Response</i> $response
+            <td><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request,<br/><i><a href="/stdout-mvc/reference-guide#Response">Response</a></i> $response
             </td>
             <td>
             </td>
@@ -513,14 +515,14 @@ CSRF checks later on in application's lifecycle.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
             <td>
                 Creates an object
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If 'secret' key is not defined in XML</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If 'secret' key is not defined in XML</li></ul>
             </td>
         </tr>
         <tr>
@@ -531,7 +533,7 @@ CSRF checks later on in application's lifecycle.
             </td>
             <td>
                 Encodes a token based on unique user identifier
-. This method is: <ul><li>throwing <a href="#\Lucinda\WebSecurity\EncryptionException">\Lucinda\WebSecurity\EncryptionException</a> If encryption of token fails.</li></ul>
+. This method is: <ul><li>throwing <a href="/web-security/reference-guide#EncryptionException">EncryptionException</a> If encryption of token fails.</li></ul>
             </td>
         </tr>
         <tr>
@@ -543,7 +545,7 @@ CSRF checks later on in application's lifecycle.
             <td>
                 Checks if a token is valid for specific uuid.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\WebSecurity\EncryptionException">\Lucinda\WebSecurity\EncryptionException</a> If decryption of token fails.</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenException">\Lucinda\WebSecurity\TokenException</a> If token fails validations.</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenRegenerationException">\Lucinda\WebSecurity\TokenRegenerationException</a> If token needs to be refreshed</li></ul>
+. This method is: <ul><li>throwing <a href="/web-security/reference-guide#EncryptionException">EncryptionException</a> If decryption of token fails.</li><li>throwing <a href="/web-security/reference-guide#TokenException">TokenException</a> If token fails validations.</li><li>throwing <a href="/web-security/reference-guide#TokenRegenerationException">TokenRegenerationException</a> If token needs to be refreshed</li></ul>
             </td>
         </tr>
     </tbody>
@@ -567,14 +569,14 @@ CSRF checks later on in application's lifecycle.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $currentPage,<br/><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $currentPage,<br/><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
             </td>
             <td>
             </td>
             <td>
                 Creates an object.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\WebSecurity\AuthenticationException">\Lucinda\WebSecurity\AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenException">\Lucinda\WebSecurity\TokenException</a> If CSRF checks fail</li><li>throwing <a href="#\Lucinda\SQL\ConnectionException">\Lucinda\SQL\ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="#\Lucinda\SQL\StatementException">\Lucinda\SQL\StatementException</a> If query to database server fails.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/web-security/reference-guide#AuthenticationException">AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="/web-security/reference-guide#TokenException">TokenException</a> If CSRF checks fail</li><li>throwing <a href="/sql-data-access/reference-guide#ConnectionException">ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="/sql-data-access/reference-guide#StatementException">StatementException</a> If query to database server fails.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -598,14 +600,14 @@ CSRF checks later on in application's lifecycle.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $currentPage,<br/><i>mixed</i> $userID
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $currentPage,<br/><i>mixed</i> $userID
             </td>
             <td>
             </td>
             <td>
                 Creates an object
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\SQL\ConnectionException">\Lucinda\SQL\ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="#\Lucinda\SQL\StatementException">\Lucinda\SQL\StatementException</a> If query to database server fails.</li></ul>
+. This method is: <ul><li>throwing <a href="/sql-data-access/reference-guide#ConnectionException">ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="/sql-data-access/reference-guide#StatementException">StatementException</a> If query to database server fails.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -629,7 +631,7 @@ CSRF checks later on in application's lifecycle.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $databaseInfo
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $databaseInfo
             </td>
             <td>
             </td>
@@ -640,7 +642,7 @@ CSRF checks later on in application's lifecycle.
         </tr>
         <tr>
             <td>setDataSource</td>
-            <td><i>\SimpleXMLElement</i> $databaseInfo
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $databaseInfo
             </td>
             <td><i>mixed</i>
             </td>
@@ -681,36 +683,36 @@ CSRF checks later on in application's lifecycle.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
             <td>
                 Creates an object.
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li></ul>
             </td>
         </tr>
         <tr>
             <td>login</td>
             <td><i>string</i> $currentPage
             </td>
-            <td><i><a href="#LoginRequest|null">LoginRequest</a><br/>null</i>
+            <td><i><a href="#LoginRequest">LoginRequest</a><br/>null</i>
             </td>
             <td>
                 Sets up login data, if operation was requested
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If request doesn't come with mandatory parameters.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If request doesn't come with mandatory parameters.</li></ul>
             </td>
         </tr>
         <tr>
             <td>logout</td>
             <td><i>string</i> $currentPage
             </td>
-            <td><i><a href="#LogoutRequest|null">LogoutRequest</a><br/>null</i>
+            <td><i><a href="#LogoutRequest">LogoutRequest</a><br/>null</i>
             </td>
             <td>
                 Sets up logout data, if operation was requested
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -777,7 +779,7 @@ forward json web token operations.
 
         <tr>
             <td>setDriver</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -810,7 +812,7 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request
             </td>
             <td>
             </td>
@@ -876,14 +878,14 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request
+            <td><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request
             </td>
             <td>
             </td>
             <td>
                 Sets up \Lucinda\Internationalization\Reader instance to use later on in automatic translation based on XML and client headers
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -892,7 +894,7 @@ forward json web token operations.
 <p>Binds STDERR MVC API to Logging API in order to report errors through loggers.
 </p>
 <h3>Signature</h3>
-<p>abstract class LogReporter implements <a href="#\Lucinda\MVC\STDERR\ErrorReporter">\Lucinda\MVC\STDERR\ErrorReporter</a></p>
+<p>abstract class LogReporter implements <a href="/stderr-mvc/reference-guide#ErrorReporter">ErrorReporter</a></p>
 <h3>Methods</h3>
 <table>
     <thead>
@@ -907,7 +909,7 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -919,9 +921,9 @@ forward json web token operations.
         </tr>
         <tr>
             <td>getLogger</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
-            <td><i>\Lucinda\Logging\Logger</i>
+            <td><i><a href="/logging/reference-guide#Logger">Logger</a></i>
             </td>
             <td>
                 Detects logger based on XML attributes.
@@ -931,13 +933,13 @@ forward json web token operations.
         </tr>
         <tr>
             <td>report</td>
-            <td><i></i> $request
+            <td><i><a href="#Request">Request</a></i> $request
             </td>
             <td>
             </td>
             <td>
-                {@inheritDoc}
-. This method is: <ul><li>overriding report() @ <a href="#\Lucinda\MVC\STDERR\ErrorReporter">\Lucinda\MVC\STDERR\ErrorReporter</a></li></ul>
+                Reports error info to a storage medium.
+. This method is: <ul><li>overriding report() @ <a href="/stderr-mvc/reference-guide#ErrorReporter">ErrorReporter</a></li></ul>
             </td>
         </tr>
     </tbody>
@@ -961,14 +963,14 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $developmentEnvironment
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $developmentEnvironment
             </td>
             <td>
             </td>
             <td>
                 Performs loggers detection based on XML and execution environment then aggregates results into a MultiLogger for cascading logs
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
             </td>
         </tr>
         <tr>
@@ -1004,20 +1006,20 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $developmentEnvironment
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $developmentEnvironment
             </td>
             <td>
             </td>
             <td>
                 Reads XML tag loggers.{environment}, finds and saves loggers found.
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is invalid.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If pointed file doesn't exist or is invalid</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is invalid.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If pointed file doesn't exist or is invalid</li></ul>
             </td>
         </tr>
         <tr>
             <td>getLoggers</td>
             <td>
             </td>
-            <td><i>\Lucinda\Logging\Logger[]</i>
+            <td><i><a href="/logging/reference-guide#Logger">Logger</a>[]</i>
             </td>
             <td>
                 Gets detected logger.
@@ -1222,7 +1224,7 @@ forward json web token operations.
 <p>Implements a logger that forwards internally to multiple loggers.
 </p>
 <h3>Signature</h3>
-<p>class MultiLogger extends <a href="#\Lucinda\Logging\Logger">\Lucinda\Logging\Logger</a> </p>
+<p>class MultiLogger extends <a href="/logging/reference-guide#Logger">Logger</a> </p>
 <h3>Methods</h3>
 <table>
     <thead>
@@ -1237,7 +1239,7 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\Logging\Logger[]</i> $loggers
+            <td><i><a href="/logging/reference-guide#Logger">Logger</a>[]</i> $loggers
             </td>
             <td>
             </td>
@@ -1249,13 +1251,14 @@ forward json web token operations.
         </tr>
         <tr>
             <td>log</td>
-            <td><i></i> $info,<br/><i></i> $level
+            <td><i>string|\Exception|\Throwable</i> $info,<br/><i>integer</i> $level
             </td>
             <td>
             </td>
             <td>
-                {@inheritDoc}
-. This method is: <ul><li>overriding log() @ <a href="#\Lucinda\Logging\Logger">\Lucinda\Logging\Logger</a></li></ul>
+                Performs the act of logging.
+
+. This method is: <ul><li>protected</li><li>overriding log() @ <a href="/logging/reference-guide#Logger">Logger</a></li></ul>
             </td>
         </tr>
     </tbody>
@@ -1279,14 +1282,14 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $developmentEnvironment
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $developmentEnvironment
             </td>
             <td>
             </td>
             <td>
                 Binds NoSQL Data Access API to XML based on development environment and sets DataSource for later querying
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -1310,7 +1313,7 @@ forward json web token operations.
 
         <tr>
             <td>setDataSource</td>
-            <td><i>\SimpleXMLElement</i> $databaseInfo
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $databaseInfo
             </td>
             <td><i>mixed</i>
             </td>
@@ -1341,21 +1344,21 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $currentPage,<br/><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $currentPage,<br/><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
             </td>
             <td>
             </td>
             <td>
                 Creates an object
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\WebSecurity\AuthenticationException">\Lucinda\WebSecurity\AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenException">\Lucinda\WebSecurity\TokenException</a> If CSRF checks fail.</li><li>throwing <a href="#\Lucinda\SQL\ConnectionException">\Lucinda\SQL\ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="#\Lucinda\SQL\StatementException">\Lucinda\SQL\StatementException</a> If query to database server fails.</li><li>throwing <a href="#\OAuth2\ClientException">\OAuth2\ClientException</a> When oauth2 local client sends malformed requests to oauth2 server.</li><li>throwing <a href="#\OAuth2\ServerException">\OAuth2\ServerException</a> When oauth2 remote server answers with an error.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/web-security/reference-guide#AuthenticationException">AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="/web-security/reference-guide#TokenException">TokenException</a> If CSRF checks fail.</li><li>throwing <a href="/sql-data-access/reference-guide#ConnectionException">ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="/sql-data-access/reference-guide#StatementException">StatementException</a> If query to database server fails.</li><li>throwing <a href="/oauth2-client/reference-guide#ClientException">ClientException</a> When oauth2 local client sends malformed requests to oauth2 server.</li><li>throwing <a href="/oauth2-client/reference-guide#ServerException">ServerException</a> When oauth2 remote server answers with an error.</li></ul>
             </td>
         </tr>
         <tr>
             <td>getDrivers</td>
             <td>
             </td>
-            <td><i>array[string:OAuth2\Driver]</i>
+            <td><i><a href="/oauth2-client/reference-guide#Driver">Driver</a>[string]</i>
             </td>
             <td>
                 Gets OAuth2 drivers
@@ -1384,7 +1387,7 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1396,7 +1399,7 @@ forward json web token operations.
         </tr>
         <tr>
             <td>setDriver</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1410,7 +1413,7 @@ forward json web token operations.
             <td>getDriver</td>
             <td>
             </td>
-            <td><i>\Lucinda\WebSecurity\PersistenceDriver</i>
+            <td><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a></i>
             </td>
             <td>
                 Gets current persistence driver.
@@ -1439,7 +1442,7 @@ forward json web token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1453,7 +1456,7 @@ forward json web token operations.
             <td>getPersistenceDrivers</td>
             <td>
             </td>
-            <td><i>\Lucinda\WebSecurity\PersistenceDriver[]</i>
+            <td><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i>
             </td>
             <td>
                 Gets detected drivers for authenticated state persistence.
@@ -1483,7 +1486,7 @@ forward remember-me cookie operations.
 
         <tr>
             <td>setDriver</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1514,14 +1517,14 @@ forward remember-me cookie operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $developmentEnvironment
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $developmentEnvironment
             </td>
             <td>
             </td>
             <td>
                 Binds SQL Data Access API to XML based on development environment and sets DataSource for later querying
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If referenced resources in XML do not exist on disk or are invalid.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -1545,7 +1548,7 @@ forward remember-me cookie operations.
 
         <tr>
             <td>setDataSource</td>
-            <td><i>\SimpleXMLElement</i> $databaseInfo
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $databaseInfo
             </td>
             <td><i>mixed</i>
             </td>
@@ -1576,14 +1579,14 @@ forward remember-me cookie operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Application</i> $application,<br/><i>\Lucinda\MVC\STDOUT\Request</i> $request
+            <td><i><a href="/stdout-mvc/reference-guide#Application">Application</a></i> $application,<br/><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request
             </td>
             <td>
             </td>
             <td>
                 Binds APIs based on XML to perform authentication/authorization on a request
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\SQL\ConnectionException">\Lucinda\SQL\ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="#\Lucinda\SQL\StatementException">\Lucinda\SQL\StatementException</a> If query to database server fails.</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\WebSecurity\AuthenticationException">\Lucinda\WebSecurity\AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenException">\Lucinda\WebSecurity\TokenException</a> If CSRF checks fail</li><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If request doesn't come with mandatory parameters.</li><li>throwing <a href="#\OAuth2\ClientException">\OAuth2\ClientException</a> When oauth2 local client sends malformed requests to oauth2 server.</li><li>throwing <a href="#\OAuth2\ServerException">\OAuth2\ServerException</a> When oauth2 remote server answers with an error.</li></ul>
+. This method is: <ul><li>throwing <a href="/sql-data-access/reference-guide#ConnectionException">ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="/sql-data-access/reference-guide#StatementException">StatementException</a> If query to database server fails.</li><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/web-security/reference-guide#AuthenticationException">AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="/web-security/reference-guide#TokenException">TokenException</a> If CSRF checks fail</li><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If request doesn't come with mandatory parameters.</li><li>throwing <a href="/oauth2-client/reference-guide#ClientException">ClientException</a> When oauth2 local client sends malformed requests to oauth2 server.</li><li>throwing <a href="/oauth2-client/reference-guide#ServerException">ServerException</a> When oauth2 remote server answers with an error.</li></ul>
             </td>
         </tr>
         <tr>
@@ -1614,7 +1617,7 @@ forward remember-me cookie operations.
             <td>getOAuth2Drivers</td>
             <td>
             </td>
-            <td><i>array[string:OAuth2\Driver]</i>
+            <td><i><a href="/oauth2-client/reference-guide#Driver">Driver</a>[string]</i>
             </td>
             <td>
                 /*
@@ -1691,7 +1694,7 @@ Gets oauth2 drivers found (if authentication method was "oauth2")
         </tr>
         <tr>
             <td>setAccessToken</td>
-            <td><i>mixed</i> $userID,<br/><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers
+            <td><i>mixed</i> $userID,<br/><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers
             </td>
             <td>
             </td>
@@ -1735,7 +1738,7 @@ forward session persistence operations.
 
         <tr>
             <td>setDriver</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1766,7 +1769,7 @@ forward session persistence operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i><a href="#LocaleDetector">LocaleDetector</a></i> $locale
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i><a href="#LocaleDetector">LocaleDetector</a></i> $locale
             </td>
             <td>
             </td>
@@ -1780,7 +1783,7 @@ forward session persistence operations.
             <td>getSettings</td>
             <td>
             </td>
-            <td><i>\Lucinda\Internationalization\Settings</i>
+            <td><i><a href="/internationalization/reference-guide#Settings">Settings</a></i>
             </td>
             <td>
                 Gets compiled Internationalization API Settings object
@@ -1809,7 +1812,7 @@ forward synchronizer token operations.
 
         <tr>
             <td>setDriver</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
@@ -1840,7 +1843,7 @@ forward synchronizer token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers
+            <td><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers
             </td>
             <td>
             </td>
@@ -1883,21 +1886,21 @@ forward synchronizer token operations.
 
         <tr>
             <td>__construct</td>
-            <td><i>\Lucinda\MVC\STDOUT\Request</i> $request
+            <td><i><a href="/stdout-mvc/reference-guide#Request">Request</a></i> $request
             </td>
             <td>
             </td>
             <td>
                 Binds APIs to XML in order to perform request parameters validation based on contents of <route> tag.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\RequestValidator\Exception">\Lucinda\RequestValidator\Exception</a> If XML is misconfigured</li><li>throwing <a href="#\Lucinda\RequestValidator\MethodNotSupportedException">\Lucinda\RequestValidator\MethodNotSupportedException</a> If http method used to retrieve resource is not supported.</li></ul>
+. This method is: <ul><li>throwing <a href="/request-validation/reference-guide#Exception">Exception</a> If XML is misconfigured</li><li>throwing <a href="/request-validation/reference-guide#MethodNotSupportedException">MethodNotSupportedException</a> If http method used to retrieve resource is not supported.</li></ul>
             </td>
         </tr>
         <tr>
             <td>getResults</td>
             <td>
             </td>
-            <td><i>\Lucinda\RequestValidator\ResultsList</i>
+            <td><i><a href="/request-validation/reference-guide#ResultsList">ResultsList</a></i>
             </td>
             <td>
                 Gets validation results
@@ -1927,14 +1930,14 @@ is compiled into PHP language.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $viewFile
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $viewFile
             </td>
             <td>
             </td>
             <td>
                 Compiles view file from ViewLanguage to PHP using also contents of <application> XML tag.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is misconfigured</li><li>throwing <a href="#\Lucinda\Templating\ViewException">\Lucinda\Templating\ViewException</a> If compilation failed due to a developer error.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is misconfigured</li><li>throwing <a href="/view-language/reference-guide#ViewException">ViewException</a> If compilation failed due to a developer error.</li></ul>
             </td>
         </tr>
         <tr>
@@ -1970,13 +1973,13 @@ is compiled into PHP language.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $currentPage,<br/><i>\Lucinda\WebSecurity\PersistenceDriver[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $currentPage,<br/><i><a href="/web-security/reference-guide#PersistenceDriver">PersistenceDriver</a>[]</i> $persistenceDrivers,<br/><i><a href="#CsrfTokenDetector">CsrfTokenDetector</a></i> $csrf
             </td>
             <td>
             </td>
             <td>
                 Creates an object.
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li><li>throwing <a href="#\Lucinda\WebSecurity\AuthenticationException">\Lucinda\WebSecurity\AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="#\Lucinda\WebSecurity\TokenException">\Lucinda\WebSecurity\TokenException</a> If CSRF checks fail</li><li>throwing <a href="#\Lucinda\SQL\ConnectionException">\Lucinda\SQL\ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="#\Lucinda\SQL\StatementException">\Lucinda\SQL\StatementException</a> If query to database server fails.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li><li>throwing <a href="/web-security/reference-guide#AuthenticationException">AuthenticationException</a> If one or more persistence drivers are not instanceof PersistenceDriver</li><li>throwing <a href="/web-security/reference-guide#TokenException">TokenException</a> If CSRF checks fail</li><li>throwing <a href="/sql-data-access/reference-guide#ConnectionException">ConnectionException</a> If connection to database server fails.</li><li>throwing <a href="/sql-data-access/reference-guide#StatementException">StatementException</a> If query to database server fails.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -2000,14 +2003,14 @@ is compiled into PHP language.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml,<br/><i>string</i> $currentPage,<br/><i>integer</i> $userID
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml,<br/><i>string</i> $currentPage,<br/><i>integer</i> $userID
             </td>
             <td>
             </td>
             <td>
                 Creates an object.
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\XMLException">\Lucinda\MVC\STDOUT\XMLException</a> If XML is malformed.</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#XMLException">XMLException</a> If XML is malformed.</li></ul>
             </td>
         </tr>
     </tbody>
@@ -2035,21 +2038,21 @@ to. Its file must be located in folder application/models.
 
         <tr>
             <td>__construct</td>
-            <td><i>\SimpleXMLElement</i> $xml
+            <td><i><a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a></i> $xml
             </td>
             <td>
             </td>
             <td>
                 Sets up session for locale persistance across requests based on XML settings
 
-. This method is: <ul><li>throwing <a href="#\Lucinda\MVC\STDOUT\ServletException">\Lucinda\MVC\STDOUT\ServletException</a> If handler file/class not found or latter is not instanceof SessionHandlerInterface</li></ul>
+. This method is: <ul><li>throwing <a href="/stdout-mvc/reference-guide#ServletException">ServletException</a> If handler file/class not found or latter is not instanceof SessionHandlerInterface</li></ul>
             </td>
         </tr>
         <tr>
             <td>getSecurityOptions</td>
             <td>
             </td>
-            <td><i>\Lucinda\MVC\STDOUT\SessionSecurityOptions</i>
+            <td><i><a href="/stdout-mvc/reference-guide#SessionSecurityOptions">SessionSecurityOptions</a></i>
             </td>
             <td>
                 Gets session security info.
@@ -2060,7 +2063,7 @@ to. Its file must be located in folder application/models.
             <td>getHandler</td>
             <td>
             </td>
-            <td><i>\SessionHandlerInterface</i>
+            <td><i><a href="http://php.net/manual/ro/class.sessionhandlerinterface.php" target="_blank">\SessionHandlerInterface</a></i>
             </td>
             <td>
                 Gets instance of class to which session handling will be delegated to.

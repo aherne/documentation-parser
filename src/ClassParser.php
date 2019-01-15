@@ -1,34 +1,20 @@
 <?php
 namespace Lucinda\DocumentationParser;
+
 require_once("ClassDeclaration.php");
 require_once("MethodDeclaration.php");
 require_once("ParameterDeclaration.php");
 require_once("CommentParser.php");
 
-class ClassParser {
-    private $results = array();
+class ClassParser
+{
+    private $classInfo;
 
-    public function __construct($folder) {
-        $this->queue($folder);
-        uasort($this->results, function($left, $right) {
-            return strcmp($left->getName(), $right->getName());
-        });
+    public function __construct($file) {
+        $this->setInfo($file);
     }
 
-    private function queue($folder) {
-        $files = scandir($folder);
-        foreach($files as $file) {
-            if($file == "." || $file=="..") continue;
-            $dir = $folder."/".$file;
-            if(is_dir($dir)) {
-                $this->queue($dir);
-            } else {
-                $this->parse($folder."/".$file);
-            }
-        }
-    }
-
-    private function parse($file) {
+    private function setInfo($file) {
         $contents = file_get_contents($file);
         preg_match_all("/\s*((?:\/\*(?:[^*]|(?:\*[^\/]))*\*\/))*\s*\n\s*(abstract)*\s*(class|interface)[\s]*([a-zA-Z0-9]+)\s*(extends\s*[\\\a-zA-Z0-9]+)*\s*(implements\s*[^{]+)*/", $contents, $m1);
         if(isset($m1[4][0])) {
@@ -79,11 +65,11 @@ class ClassParser {
                 $cd->addMethod($md);
             }
 
-            $this->results[$m1[4][0]] = $cd;
+            $this->classInfo = $cd;
         }
     }
 
-    public function getResults() {
-        return $this->results;
+    public function getInfo() {
+        return $this->classInfo;
     }
 }

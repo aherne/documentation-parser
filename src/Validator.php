@@ -5,11 +5,11 @@ class Validator
 {
     private $errors=[];
 
-    public function __construct(ClassParser $parser) {
+    public function __construct(ProjectParser $parser) {
         $this->validate($parser);
     }
 
-    private function validate(ClassParser $parser) {
+    private function validate(ProjectParser $parser) {
         $results = $parser->getResults();
         foreach($results as $class) {
             if(!$class->getDescription()) {
