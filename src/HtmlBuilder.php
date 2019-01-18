@@ -4,6 +4,7 @@ namespace Lucinda\DocumentationParser;
 class HtmlBuilder {
     private $remoteLinks=[];
     private $remoteClasses=[];
+    private $namespaces=[];
 
     public function __construct(ProjectParser $parser, $fileName, $remoteLinks=[], $remoteClasses=[]) {
         $this->remoteLinks = $remoteLinks;
@@ -78,8 +79,7 @@ class HtmlBuilder {
             foreach($methods as $method) {
                 $overrideSignature = $method->getOverrides();
                 if($method->getOverrides()) {
-                    $tempMethod = $this->getInheritedMethod($parser, $overrideSignature);
-                    if($tempMethod) $method = $tempMethod;
+                    $method = $this->getInheritedMethod($parser, $overrideSignature);
                 }
                 $html.="
         <tr>
@@ -146,7 +146,7 @@ class HtmlBuilder {
         }
         return $html;
     }
-    
+
     private function getInheritedMethod(ProjectParser $parser, $overrideSignature) {
         $results = $parser->getResults();
         $inheritedClass = null;
@@ -158,32 +158,69 @@ class HtmlBuilder {
             throw new \Exception("Inherited class not found: ".$overrideSignature->getClass());
         }
         $inheritedClassMethods = $inheritedClass->getMethods();
-        return $inheritedClassMethods[$overrideSignature->getMethod()];
+        $inheritedMethod = $inheritedClassMethods[$overrideSignature->getMethod()];
+        // get namespace
+        $namespace = ($overrideSignature->getClass(){0}=="\\"?substr($overrideSignature->getClass(),0, strrpos($overrideSignature->getClass(),"\\")):"");
+        // append to arguments
+        $arguments = $inheritedMethod->getArguments();
+        foreach($arguments as $argument) {
+            $type = $argument->getType();
+            if(ctype_upper($type{0})) {
+                $argument->setType($namespace."\\".$type);
+            }
+        }
+        // replace return type
+        $returnType = $inheritedMethod->getReturnType();
+        if($returnType ) {
+            $type = $returnType->getType();
+            if(ctype_upper($type{0})) {
+                $returnType->setType($namespace."\\".$type);
+            }
+        }
+
+        // TODO: create table of contents
+        // TODO: fix "Exception" class when there is no namespace
+        return $inheritedMethod;
     }
 
     private function getClassLink($className) {
-        // TODO: fixme code
         if(strpos($className, "\\")===0) {
             preg_match("/(.*)\\\([^\\\]+)/", $className, $matches);
             $namespace = $matches[1];
             if(isset($this->remoteLinks[$namespace])) {
-                preg_match("/([\\\a-zA-Z]+)(\[*[a-z]*\]*)/", $matches[2], $m2);
+                preg_match("/([\\\a-zA-Z0-9]+)(\[*[a-z]*\]*)/", $matches[2], $m2);
                 if($m2[2]) {
-                    return '<a href="'.$this->remoteLinks[$namespace].'#'.$m2[1].'">'.$m2[1].'</a>'.$m2[2];
+                    return '<a href="'.$this->remoteLinks[$namespace].'#'.$m2[1].'">'.$namespace.'\\'.$m2[1].'</a>'.$m2[2];
                 } else {
-                    return '<a href="'.$this->remoteLinks[$namespace].'#'.$m2[1].'">'.$m2[1].'</a>';
+                    return '<a href="'.$this->remoteLinks[$namespace].'#'.$m2[1].'">'.$namespace.'\\'.$m2[1].'</a>';
                 }
             } else if($className=="\\Exception") {
                 return '<a href="http://php.net/manual/ro/class.exception.php" target="_blank">'.$className.'</a>';
             } else if($className=="\\SimpleXMLElement") {
                 return '<a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\SimpleXMLElement[string]") {
+                return '<a href="http://php.net/manual/ro/class.simplexmlelement.php" target="_blank">\SimpleXMLElement</a>[string]';
             } else if($className=="\\SessionHandlerInterface") {
                 return '<a href="http://php.net/manual/ro/class.sessionhandlerinterface.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\PDO") {
+                return '<a href="http://php.net/manual/en/book.pdo.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\PDOStatement") {
+                return '<a href="http://php.net/manual/en/class.pdostatement.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\CouchbaseBucket") {
+                return '<a href="http://docs.couchbase.com/sdk-api/couchbase-php-client-2.0.1/classes/CouchbaseBucket.html" target="_blank">'.$className.'</a>';
+            } else if($className=="\\Memcache") {
+                return '<a href="http://php.net/manual/en/class.memcache.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\Memcached") {
+                return '<a href="http://php.net/manual/en/class.memcached.php" target="_blank">'.$className.'</a>';
+            } else if($className=="\\Redis") {
+                return '<a href="https://github.com/phpredis/phpredis" target="_blank">'.$className.'</a>';
+            } else if($className=="\\RedisCluster") {
+                return '<a href="https://github.com/phpredis/phpredis/blob/develop/cluster.markdown" target="_blank">'.$className.'</a>';
             } else {
                 throw new \Exception("Unknown class: ".$className);
             }
         } else if(ctype_upper($className{0})) {
-            preg_match("/([\\\a-zA-Z]+)(\[*[a-z]*\]*)/", $className, $m2);
+            preg_match("/([\\\a-zA-Z0-9]+)(\[*[a-z]*\]*)/", $className, $m2);
             if($m2[2]) {
                 return '<a href="#'.$m2[1].'">'.$m2[1].'</a>'.$m2[2];
             } else {

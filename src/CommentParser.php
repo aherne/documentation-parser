@@ -49,7 +49,7 @@ class CommentParser {
             $td->setDescription(trim($m3[2]));
             $this->throws[] = $td;
         }
-        preg_match("/@see\s+([\\\a-zA-Z]+)::([a-zA-Z]+)/", $line, $m4);
+        preg_match("/@see\s+([^\:]+)::([a-zA-Z]+)/", $line, $m4);
         if(sizeof($m4)>0) {
             $od = new OverridesDeclaration();
             $od->setClass($m4[1]);
