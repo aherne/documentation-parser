@@ -32,7 +32,7 @@ require_once("src/HtmlBuilder.php");
 //}
 //
 echo "Parsing library: lucinda-framework-engine";
-$parser = new Lucinda\DocumentationParser\ProjectParser("/home/aherne/git/lucinda-framework-engine/src");
+$parser = new Lucinda\DocumentationParser\ProjectParser("/home/aherne/git/framework/lucinda-framework-engine");
 $validator = new Lucinda\DocumentationParser\Validator($parser);
 if($validator->hasPassed()) {
     new HtmlBuilder($parser, __DIR__."/lucinda-framework-engine.html", [
@@ -49,9 +49,10 @@ if($validator->hasPassed()) {
         "\Lucinda\Caching"=>"/http-caching/reference-guide",
         "\Lucinda\Internationalization"=>"/internationalization/reference-guide"
     ], [
-        "\Lucinda\Caching\Cacheable"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/http-caching-api/src/Cacheable.php"),
-        "\Lucinda\MVC\STDERR\ErrorReporter"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/errors-api/src/ErrorReporter.php"),
-        "\Lucinda\Logging\Logger"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/php-logging-api/src/Logger.php")
+        "\Lucinda\Caching\Cacheable"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/framework/http-caching-api/src/Cacheable.php"),
+        "\Lucinda\MVC\STDERR\ErrorReporter"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/framework/errors-api/src/ErrorReporter.php"),
+        "\Lucinda\Logging\Logger"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/framework/php-logging-api/src/Logger.php"),
+        "\Lucinda\WebSecurity\OAuth2UserInformation"=>new Lucinda\DocumentationParser\ClassParser("/home/aherne/git/framework/php-security-api/src/authentication/OAuth2UserInformation.php")
     ]);
     echo " OK\n";
 } else {

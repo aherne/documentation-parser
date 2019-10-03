@@ -14,7 +14,7 @@ class ProjectParser {
     private function setResults($folder) {
         $files = scandir($folder);
         foreach($files as $file) {
-            if($file == "." || $file=="..") continue;
+            if($file == "." || $file==".." || $file==".git" || $file=="test") continue;
             $dir = $folder."/".$file;
             if(is_dir($dir)) {
                 $this->setResults($dir);
